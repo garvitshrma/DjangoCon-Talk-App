@@ -13,13 +13,31 @@ class Schedule(toga.App):
         )
 
         # --- body: the flexible middle, grows with the window ----------
-        self.body = toga.Label(
-            "Nothing here yet.",
-            style=Pack(margin=12, flex=1, background_color="#eeeeee"),
+        # accessors order is (title, subtitle, icon) -- icon LAST.
+        self.projects = toga.DetailedList(
+            accessors=("name", "tagline", "icon"),
+            data=[
+                {
+                    "name": "Leaderboard-Pro",
+                    "tagline": "Aggregates competitive programming rankings",
+                    "icon": None,
+                },
+                {
+                    "name": "Mess Portal",
+                    "tagline": "Hostel mess menu and feedback",
+                    "icon": None,
+                },
+                {
+                    "name": "OpenLake Website",
+                    "tagline": "The club site, on Vercel",
+                    "icon": None,
+                },
+            ],
+            style=Pack(flex=1),
         )
 
         # --- footer: a ROW nested inside the COLUMN --------------------
-        self.count = toga.Label("0 projects", style=Pack(margin=12))
+        self.count = toga.Label("3 projects", style=Pack(margin=12))
 
         # an empty flexible box that eats the leftover space,
         # pushing the button to the right edge
@@ -38,7 +56,7 @@ class Schedule(toga.App):
 
         # --- assemble: one root widget for the window ------------------
         main_box = toga.Box(
-            children=[self.header, self.body, footer],
+            children=[self.header, self.projects, footer],
             style=Pack(direction=COLUMN, flex=1),
         )
 
@@ -47,8 +65,15 @@ class Schedule(toga.App):
         self.main_window.show()
 
     def on_refresh(self, widget, **kwargs):
-        self.body.text = "Refresh pressed."
-        self.count.text = "3 projects"
+        self.projects.data = [
+            {
+                "name": "Refreshed",
+                "tagline": "The list was replaced",
+                "icon": None,
+            },
+        ]
+        self.count.text = "1 project"
+
 
 def main():
     return Schedule()
