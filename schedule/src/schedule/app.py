@@ -14,6 +14,7 @@ class Schedule(toga.App):
         We then create a main window (with a name matching the app), and
         show the main window.
         """
+        print("TOGA VERSION:", toga.__version__)
         main_box = toga.Box()
 
         self.main_window = toga.MainWindow(title=self.formal_name)
