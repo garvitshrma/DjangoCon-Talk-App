@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+venv_api/
+.venv/
+
+# Briefcase
+.briefcase/
+logs/
+build/
+dist/
+
+# Django
+db.sqlite3
+*.log
+.env
