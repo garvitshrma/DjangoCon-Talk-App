@@ -2,7 +2,7 @@ import httpx2
 import toga
 from toga.style.pack import COLUMN, ROW, Pack
 
-API_URL = "http://127.0.0.1:8000/api/projects/"
+API_URL = "https://djangocon-talk-app.onrender.com/api/projects/"
 
 
 class Schedule(toga.App):
